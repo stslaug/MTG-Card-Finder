@@ -1,0 +1,234 @@
+#welcome
+{
+	background-image: linear-gradient(180deg, #0f0026 0%, #371062 45%, #0f0026 100%);
+}
+
+.hero h1
+{
+	font-size: 3rem;
+	margin-bottom: 0.5rem;
+}
+
+h1, h2, h3, h4, h5, h6
+{
+	color: white !important;
+}
+
+/* About Section */
+#about
+{
+	gap: 1rem;
+	color: white;
+	padding: 4rem 0 6rem;
+	margin: 6rem auto 6rem;
+}
+@media (max-width: 767px) {
+	#about{
+ 		padding: 0 0.4rem;
+	}
+}
+
+#about img
+{
+	align-self: center;
+	border-radius: 50%;
+	display: flex;
+	height: auto;
+	justify-self: center;
+	max-width: 400px;
+	min-width: 250px;
+}
+
+/* Skills Section */
+#skills
+{
+	color: white;
+	background-color: rgba(255, 255, 255, 0.05);
+	background-image: linear-gradient(180deg, #0f0026 0%, #371062 33%, #371062 75%, #220154 90%, #0f0026 100%);
+	padding: 4rem 0;
+	width: min(100%, 950px);
+}
+
+#skills h2
+{
+	font-size: 2.5rem;
+}
+
+@keyframes subtle-bounce
+{
+	0%, 100%
+	{
+		transform: translateY(0);
+	}
+	50%
+	{
+		transform: translateY(-5px);
+	}
+}
+
+#contact
+{
+	color: white;
+}
+
+#contact ul
+{
+	display: flex;
+	justify-content: center;
+	list-style: none;
+	margin: 2rem 0;
+	padding: 0;
+}
+
+#contact li
+{
+	margin: 0 1rem;
+}
+
+#contact li:hover
+{
+	transform: scale(1.05);
+}
+
+/* --- Base Styles --- */
+.oval {
+	overflow-x: hidden !important;
+	position: absolute;
+	margin: auto;
+	width: 625px;
+	height: 800px;
+	opacity: 50%;
+	border-radius: 50%;
+	z-index: -1 !important;
+	transition: all 0.5s ease-in-out;
+}
+
+#oval1 {
+	background-color: #6c03ce;
+	left: 10%;
+	top: 90%;
+}
+
+#oval2 {
+	background-color: purple;
+	left: 10%;
+	top: 95%;
+}
+
+.about-me-oval-wrap {
+	position: relative;
+}
+
+/* --- Media Queries --- */
+
+/* For very large screens (2500px and wider) */
+@media screen and (min-width: 2500px) {
+	.oval {
+		width: 700px;
+		height: 900px;
+	}
+
+	#oval1 {
+		transform: scale(1.1) translate(5%, -45%) rotate(45deg);
+	}
+
+	#oval2 {
+		transform:translate(-20%, -45%) rotate(90deg);
+	}
+}
+
+/* For standard desktops (1500px to 2499px) */
+@media screen and (max-width: 2499px) and (min-width: 1500px) {
+	#oval1 {
+		transform: scale(1.2) translate(10%, -45%) rotate(60deg);
+	}
+
+	#oval2 {
+		transform:translate(-25%, -45%) rotate(90deg);
+	}
+}
+
+/* For laptops and large tablets (1000px to 1499px) */
+@media screen and (max-width: 1499px) and (min-width: 1051px) {
+	#oval1 {
+		transform: scale(1.2) translate(10%, -45%) rotate(35deg);
+	}
+
+	#oval2 {
+		transform:translate(-25%, -35%) rotate(90deg);
+	}
+}
+
+/* For tablets (600px to 999px) */
+@media screen and (max-width: 1050px) and (min-width: 768px) {
+	#oval1 {
+		transform: scale(1.2) translate(0%, -45%) rotate(35deg);
+	}
+
+	#oval2 {
+		transform:translate(-25%, -35%) rotate(90deg);
+	}
+}
+
+@media screen and (max-width: 767px) and (min-width: 600px) {
+	#oval1 {
+		transform: scale(1.1) translate(-45%, -5%) rotate(35deg);
+	}
+
+	#oval2 {
+		transform: scale(1.1) translate(-50%, -0%) rotate(115deg);
+	}
+}
+
+/* For mobile (599px and narrower) */
+@media screen and (max-width: 599px) {
+	#oval1 {
+		transform: scale(1.1) translate(-45%, -5%) rotate(35deg);
+	}
+
+	#oval2 {
+		transform: scale(1.1) translate(-50%, -0%) rotate(115deg);
+	}
+}
+
+/*
+ *
+ *  Button
+ *
+ */
+.fa-forward
+{
+	align-self: center;
+	animation: point 5s ease-in-out infinite alternate;
+	margin: auto auto auto 0.5rem;
+	position: relative;
+	transition: transform 0.5s;
+}
+
+@keyframes point
+{
+	0%, 100%
+	{
+		transform: translate(0, 1px);
+	}
+	50%
+	{
+		transform: translate(0.3rem, 1px);
+	}
+}
+
+@media (max-width: 600px)
+{
+
+
+	#contact .container ul
+	{
+		display: block;
+	}
+
+
+	#contact .container li
+	{
+		margin: 3rem auto;
+	}
+}
