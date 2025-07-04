@@ -1,6 +1,6 @@
-# .github/workflows/nextjs.yml for your Project Repository (e.g., MTG-Card-Finder)
+# .github/workflows/nextjs.yml
 
-name: Deploy Project Site to GitHub Pages
+name: Deploy Next.js site to Pages
 
 on:
   push:
@@ -13,88 +13,46 @@ permissions:
   id-token: write
 
 concurrency:
-  group: "github_pages_project_site"
+  group: "pages"
   cancel-in-progress: true
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
+      - name: Checkout
         uses: actions/checkout@v4
-
-      - name: Detect package manager
-        id: detect-package-manager
-        run: |
-          if [ -f "${{ github.workspace }}/yarn.lock" ]; then
-            echo "manager=yarn" >> $GITHUB_OUTPUT
-            echo "command=install" >> $GITHUB_OUTPUT
-            echo "runner=yarn" >> $GITHUB_OUTPUT
-            exit 0
-          elif [ -f "${{ github.workspace }}/package.json" ]; then
-            echo "manager=npm" >> $GITHUB_OUTPUT
-            echo "command=ci" >> $GITHUB_OUTPUT # 'npm ci' for clean install in CI environments
-            echo "runner=npx --no-install" >> $GITHUB_OUTPUT
-            exit 0
-          else
-            echo "Unable to determine package manager"
-            exit 1
-          fi
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: "20"
-          cache: ${{ steps.detect-package-manager.outputs.manager }}
-
-      # Step 1: Clean npm cache (to prevent stale/corrupt cached binaries)
-      - name: Clear npm cache
-        if: steps.detect-package-manager.outputs.manager == 'npm'
-        run: npm cache clean --force
-
-      # Step 2: Install system dependencies for build (Keep this, it's good practice)
-      - name: Install system dependencies for build
-        if: steps.detect-package-manager.outputs.manager == 'npm'
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y build-essential libcairo2-dev libpango1.0-dev libjpeg-dev libgif-dev librsvg2-dev
+          cache: 'npm'
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
         with:
           static_site_generator: next
 
-      - name: Restore Next.js cache
+      - name: Restore cache
         uses: actions/cache@v4
         with:
-          path: |
-            .next/cache
-          key: ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json', '**/yarn.lock') }}-${{ hashFiles('**.[jt]s', '**.[jt]sx', '**.[jt]s.map', '**.[jt]sx.map') }}
+          path: .next/cache
+          key: ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-${{ hashFiles('**/*.js', '**/*.jsx', '**/*.ts', '**/*.tsx') }}
           restore-keys: |
-            ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json', '**/yarn.lock') }}-
+            ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-
 
       - name: Install dependencies
-        # Now we explicitly ensure optional dependencies are included and install correctly
-        run: |
-          if [ "${{ steps.detect-package-manager.outputs.manager }}" == "npm" ]; then
-            # Use npm install instead of npm ci if issues persist, or ensure npm ci is robust
-            # npm ci is generally better for CI, but if it's not picking up platform-specifics
-            # then npm install might be more aggressive in resolution.
-            # Let's try npm install with a specific flag first for sharp.
-            npm install --include=optional
-            # You might even try explicitly rebuilding sharp after initial install
-            # npm rebuild sharp || true
-          else
-            yarn install --frozen-lockfile --production=false
-          fi
+        run: npm install
 
       - name: Build with Next.js
-        run: ${{ steps.detect-package-manager.outputs.runner }} next build
+        run: npm run build
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./build
+          # All Next.js static exports are placed in the 'out' directory.
+          path: ./out
 
   deploy:
     environment:
