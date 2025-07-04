@@ -3,6 +3,8 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   /* config options here */
     output: 'export',
+    basePath: '/MTG-Card-Finder',
+    assetPrefix: '/MTG-Card-Finder/',
     distDir: "build",
     images: {
         unoptimized: true,
