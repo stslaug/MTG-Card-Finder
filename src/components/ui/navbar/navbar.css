@@ -1,0 +1,14 @@
+#mynav
+{
+	color: white;
+	padding: 0.5rem;
+}
+
+@media (max-width: 600px)
+{
+	#mynav
+	{
+		display: block;
+		position: relative;
+	}
+}

@@ -1,0 +1,13 @@
+#subbar
+{
+	color: white;
+}
+
+@media (max-width: 600px)
+{
+	#subbar
+		{
+			display: block;
+			position: relative;
+	}
+}
