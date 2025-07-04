@@ -20,8 +20,8 @@ Hosts the card search, filtering, and the portal to an eventual personal card co
 
 
 ## Technologies
-React v19.1
-Node.js 15.3
-Shadcn
-Scryfall Public SDK
-TailwindCSS
+- React v19.1
+- Node.js 15.3
+- Shadcn
+- Scryfall Public SDK
+- TailwindCSS
