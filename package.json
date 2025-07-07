@@ -9,7 +9,9 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "NODE_ENV=production node server.js",
-    "lint": "next lint"
+    "lint": "next lint",
+     "docker:build": "docker build -t mtg-card-finder-image .",
+    "docker:dev": "docker run -p 3000:3000 -v .:/src/app -v /node_modules --rm mtg-card-finder-image"
   },
   "dependencies": {
     "@radix-ui/react-checkbox": "^1.3.2",

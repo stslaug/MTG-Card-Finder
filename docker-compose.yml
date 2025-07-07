@@ -1,0 +1,15 @@
+services:
+  dev:
+    # Build the image from the Dockerfile in the current directory
+    build: .
+    # Name the image that gets built
+    image: mtg-card-finder-image
+    # Map port 3000 on your machine to port 3000 in the container
+    ports:
+      - "3000:3000"
+    # Mount local files for hot-reloading
+    volumes:
+      # Mounts the current directory to /app
+      - .:/app
+      # Prevents the local node_modules from overwriting the container's
+      - /app/node_modules
