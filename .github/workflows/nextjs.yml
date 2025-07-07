@@ -34,16 +34,9 @@ jobs:
         with:
           static_site_generator: next
 
-      - name: Restore cache
-        uses: actions/cache@v4
-        with:
-          path: .next/cache
-          key: ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-${{ hashFiles('**/*.js', '**/*.jsx', '**/*.ts', '**/*.tsx') }}
-          restore-keys: |
-            ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-
-
+      # This is the updated step
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
       - name: Build with Next.js
         run: npm run build
@@ -51,7 +44,6 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # All Next.js static exports are placed in the 'out' directory.
           path: ./out
 
   deploy:
