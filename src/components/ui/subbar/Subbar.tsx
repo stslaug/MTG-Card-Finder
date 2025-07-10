@@ -16,7 +16,7 @@ import Link from "next/link";
 
 export default function Subbar() {
     return (
-        <div id="subbar" className="bg-[#0f0026] w-full flex mx-auto relative">
+        <div id="subbar" className="bg-[#0f0026] w-full flex sm:sticky mx-auto relative">
             <div className="relative justify-center flex-1 flex justify-end mr-5">
                 <NavigationMenu className="w-auto flex relative" viewport={false}>
                     <NavigationMenuList>
