@@ -13,3 +13,6 @@ services:
       - .:/app
       # Prevents the local node_modules from overwriting the container's
       - /app/node_modules
+    environment:
+      - NODE_ENV=development
+      - WATCHPACK_POLLING=true
