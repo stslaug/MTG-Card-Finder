@@ -74,41 +74,41 @@ export default function CardView() {
   function costToSymbol(cost: string) {
     switch (cost) {
       case "W":
-        return process.env.PUBLIC_URL + "/assets/images/symbols/W.svg";
+        return "/MTG-Card-Finder" + "/assets/images/symbols/W.svg";
       case "U":
-        return process.env.PUBLIC_URL + "/assets/images/symbols/U.svg";
+        return "/MTG-Card-Finder" + "/assets/images/symbols/U.svg";
       case "B":
-        return process.env.PUBLIC_URL + "/assets/images/symbols/B.svg";
+        return "/MTG-Card-Finder" + "/assets/images/symbols/B.svg";
       case "R":
-        return process.env.PUBLIC_URL + "/assets/images/symbols/R.svg";
+        return "/MTG-Card-Finder" + "/assets/images/symbols/R.svg";
       case "G":
-        return process.env.PUBLIC_URL + "/assets/images/symbols/G.svg";
+        return "/MTG-Card-Finder" + "/assets/images/symbols/G.svg";
       case "C":
-        return process.env.PUBLIC_URL + "/assets/images/symbols/C.svg";
+        return "/MTG-Card-Finder" + "/assets/images/symbols/C.svg";
       case "0":
-        return process.env.PUBLIC_URL + "/assets/images/symbols/0.svg";
+        return "/MTG-Card-Finder" + "/assets/images/symbols/0.svg";
       case "1":
-        return process.env.PUBLIC_URL + "/assets/images/symbols/1.svg";
+        return "/MTG-Card-Finder" + "/assets/images/symbols/1.svg";
       case "2":
-        return process.env.PUBLIC_URL + "/assets/images/symbols/2.svg";
+        return "/MTG-Card-Finder" + "/assets/images/symbols/2.svg";
       case "3":
-        return process.env.PUBLIC_URL + "/assets/images/symbols/3.svg";
+        return "/MTG-Card-Finder" + "/assets/images/symbols/3.svg";
       case "4":
-        return process.env.PUBLIC_URL + "/assets/images/symbols/4.svg";
+        return "/MTG-Card-Finder" + "/assets/images/symbols/4.svg";
       case "5":
-        return process.env.PUBLIC_URL + "/assets/images/symbols/5.svg";
+        return "/MTG-Card-Finder" + "/assets/images/symbols/5.svg";
       case "6":
-        return process.env.PUBLIC_URL + "/assets/images/symbols/6.svg";
+        return "/MTG-Card-Finder" + "/assets/images/symbols/6.svg";
       case "7":
-        return process.env.PUBLIC_URL + "/assets/images/symbols/7.svg";
+        return "/MTG-Card-Finder" + "/assets/images/symbols/7.svg";
       case "8":
-        return process.env.PUBLIC_URL + "/assets/images/symbols/8.svg";
+        return "/MTG-Card-Finder" + "/assets/images/symbols/8.svg";
       case "9":
-        return process.env.PUBLIC_URL + "/assets/images/symbols/9.svg";
+        return "/MTG-Card-Finder" + "/assets/images/symbols/9.svg";
       case "10":
-        return process.env.PUBLIC_URL + "/assets/images/symbols/10.svg";
+        return "/MTG-Card-Finder" + "/assets/images/symbols/10.svg";
       default:
-        return process.env.PUBLIC_URL + "/assets/images/symbols/unknown.svg"; // Fallback for unknown symbols
+        return "/MTG-Card-Finder" + "/assets/images/symbols/unknown.svg"; // Fallback for unknown symbols
     }
   }
 
