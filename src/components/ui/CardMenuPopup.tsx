@@ -155,9 +155,9 @@ export default function CardMenuPopup({ card }: CardMenuPopupProps) {
     <div
       ref={popUp}
       className={
-        "card-popup" +
-        " p-8 max-w-[550px] max-sm:relative sm:fixed rounded-2xl " +
-        "fixed bg-sidebar-primary flex flex-col " +
+        
+        " p-8 max-w-[550px] relative rounded-2xl " +
+        "bg-sidebar-primary flex flex-col " +
         "border-solid border-2 shadow-2xl border-white" +
         " space-y-1 transition-all " +
         (isOpen ? "opacity-100" : " hidden opacity-0")

@@ -15,6 +15,10 @@ const projects = [
     {
         name: "Card Database",
         to: "/"
+    },
+    {
+        name: "Hangman",
+        to: "/pages/hangman"
     }
 ]
 
@@ -48,7 +52,7 @@ export default function Navbar() {
 
                         <NavigationMenuItem>
                             <NavigationMenuTrigger>Projects</NavigationMenuTrigger>
-                            <NavigationMenuContent className={"absolute min-w-min"}>
+                            <NavigationMenuContent className={"absolute min-w-min z-1000"}>
                                 {projects.map((project, index) => (
                                     <Link key = {index} href = {project.to} legacyBehavior passHref>
                                         <NavigationMenuLink title = {project.name}>

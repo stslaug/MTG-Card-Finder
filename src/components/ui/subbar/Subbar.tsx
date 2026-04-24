@@ -35,13 +35,13 @@ export default function Subbar() {
                             </Link>
                         </NavigationMenuItem>
 
-                        <NavigationMenuItem>
-                            <Link href = "/pages//stats" legacyBehavior passHref>
+                        {/* <NavigationMenuItem>
+                            <Link href = "/pages/stats" legacyBehavior passHref>
                                 <NavigationMenuLink className = {"flex flex-row w-full" + navigationMenuTriggerStyle()}>
                                     <i className="fa-regular fa-chart-bar mr-2"></i>Stats
                                 </NavigationMenuLink>
                             </Link>
-                        </NavigationMenuItem>
+                        </NavigationMenuItem> */}
                     </NavigationMenuList>
                 </NavigationMenu>
             </div>

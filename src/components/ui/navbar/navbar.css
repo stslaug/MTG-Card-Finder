@@ -2,6 +2,7 @@
 {
 	color: white;
 	padding: 0.5rem;
+	z-index: 1000 !important;
 }
 
 @media (max-width: 600px)

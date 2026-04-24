@@ -3,12 +3,11 @@ import Image from "next/image";
 import Link from "next/link";
 import ReactLogo from "./react.png";
 import React from "react";
-import Subbar from "@/components/ui/subbar/Subbar";
 
 export default function Page() {
     return (
         <>
-            <Subbar></Subbar>
+    
             <div className = {"flex flex-col justify-center items-center w-full min-h-[85vh]"}>
                 <div className = {"flex flex-col justify-center items-center"}>
                     <div className = {"flex flex-row gap-8"}>

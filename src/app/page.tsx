@@ -3,7 +3,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import Image from "next/image";
-import { useState } from "react";
+import { use, useState } from "react";
 import * as Scry from "scryfall-sdk";
 import {
   Select,
@@ -13,9 +13,12 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
-import CardMenuPopup from "@/components/ui/CardMenuPopup";
-import Subbar from "@/components/ui/subbar/Subbar";
+
 import { toast } from "sonner";
+import Link from "next/link";
+import { useCard } from './cardContext';
+
+
 
 export default function CardHome() {
   /*
@@ -42,7 +45,7 @@ export default function CardHome() {
    */
   const [showCardDetails, setShowCardDetails] = useState(false);
   const [currentCard, setCurrentCard] = useState<Scry.Card>();
-
+  const { setActiveCard } = useCard();
   interface ScryfallApiError {
     status: number;
     code: string;
@@ -149,25 +152,21 @@ export default function CardHome() {
     }
   };
 
-  const handleCardClick = async (cardID: string) => {
-    try {
-      const card = await Scry.Cards.byId(cardID);
-      setCurrentCard(card);
-    } catch (e) {
-      console.log(e);
-    }
-    setShowCardDetails(true);
+  const handleCardClick = async (card: Scry.Card) => {
+    setActiveCard(card);
+    
   };
+
 
   function buildCardGrid(cards: Scry.Card[]) {
     return (
-      <div className="p-8  flex flex-row flex-wrap justify-center gap-4 w-full">
+      <div className="p-8 flex flex-row flex-wrap justify-center gap-4 w-full">
         <div className="flex flex-row flex-wrap justify-center gap-4">
           {cards.map((card) => (
-            <>
+            <Link key={card.id} href="/pages/cardView" onClick={() => handleCardClick(card)}>
               <Image
                 key={card.id}
-                onClick={() => handleCardClick(card.id)}
+                onClick={() => handleCardClick(card)}
                 className={
                   "rounded-3xl w-full max-h-[420px] max-w-[300px] hover:cursor-pointer"
                 }
@@ -179,12 +178,8 @@ export default function CardHome() {
                   "" /*Make placeholder effect*/
                 }
                 alt={card.name}
-              />
-              {showCardDetails && currentCard?.id === card.id ? (
-                <CardMenuPopup card={currentCard} />
-              ) : null}
-            </>
-          ))}
+              /></Link>))}
+            
         </div>
         {currentPage > 1 ? (
           <Button
@@ -207,7 +202,6 @@ export default function CardHome() {
   return (
     <>
       <div className={"min-h-[85vh]"}>
-        <Subbar />
 
         <div className={"flex sm:flex-row flex-col"}>
     
@@ -396,7 +390,7 @@ export default function CardHome() {
           </form>
         
           <div className="page w-full" id="card-viewer">
-            <div className="text-center max-h-[85vh] overflow-y-scroll mx-auto">
+            <div className="text-center  overflow-y-scroll mx-auto">
               {cardResults.length === 0 ? (
                 <>
                   <h2>Make a search to view some cards!</h2>
