@@ -74,41 +74,41 @@ export default function CardView() {
   function costToSymbol(cost: string) {
     switch (cost) {
       case "W":
-        return "/assets/images/symbols/W.svg";
+        return process.env.PUBLIC_URL + "/assets/images/symbols/W.svg";
       case "U":
-        return "/assets/images/symbols/U.svg";
+        return process.env.PUBLIC_URL + "/assets/images/symbols/U.svg";
       case "B":
-        return "/assets/images/symbols/B.svg";
+        return process.env.PUBLIC_URL + "/assets/images/symbols/B.svg";
       case "R":
-        return "/assets/images/symbols/R.svg";
+        return process.env.PUBLIC_URL + "/assets/images/symbols/R.svg";
       case "G":
-        return "/assets/images/symbols/G.svg";
+        return process.env.PUBLIC_URL + "/assets/images/symbols/G.svg";
       case "C":
-        return "/assets/images/symbols/C.svg";
+        return process.env.PUBLIC_URL + "/assets/images/symbols/C.svg";
       case "0":
-        return "/assets/images/symbols/0.svg";
+        return process.env.PUBLIC_URL + "/assets/images/symbols/0.svg";
       case "1":
-        return "/assets/images/symbols/1.svg";
+        return process.env.PUBLIC_URL + "/assets/images/symbols/1.svg";
       case "2":
-        return "/assets/images/symbols/2.svg";
+        return process.env.PUBLIC_URL + "/assets/images/symbols/2.svg";
       case "3":
-        return "/assets/images/symbols/3.svg";
+        return process.env.PUBLIC_URL + "/assets/images/symbols/3.svg";
       case "4":
-        return "/assets/images/symbols/4.svg";
+        return process.env.PUBLIC_URL + "/assets/images/symbols/4.svg";
       case "5":
-        return "/assets/images/symbols/5.svg";
+        return process.env.PUBLIC_URL + "/assets/images/symbols/5.svg";
       case "6":
-        return "/assets/images/symbols/6.svg";
+        return process.env.PUBLIC_URL + "/assets/images/symbols/6.svg";
       case "7":
-        return "/assets/images/symbols/7.svg";
+        return process.env.PUBLIC_URL + "/assets/images/symbols/7.svg";
       case "8":
-        return "/assets/images/symbols/8.svg";
+        return process.env.PUBLIC_URL + "/assets/images/symbols/8.svg";
       case "9":
-        return "/assets/images/symbols/9.svg";
+        return process.env.PUBLIC_URL + "/assets/images/symbols/9.svg";
       case "10":
-        return "/assets/images/symbols/10.svg";
+        return process.env.PUBLIC_URL + "/assets/images/symbols/10.svg";
       default:
-        return "/assets/images/symbols/unknown.svg"; // Fallback for unknown symbols
+        return process.env.PUBLIC_URL + "/assets/images/symbols/unknown.svg"; // Fallback for unknown symbols
     }
   }
 

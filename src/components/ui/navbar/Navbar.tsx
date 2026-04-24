@@ -11,6 +11,15 @@ import {
 } from "@/components/ui/navigation-menu"
 import Link from "next/link";
 
+
+/*
+* Hosted on GitHub Pages
+* paths are relative to the root of the repo (which will always be /MTG-Card-Finder/)
+* so / is the root of the repo
+* /pages/hangman would lead to /MTG-Card-Finder/pages/hangman
+* 
+*/
+
 const projects = [
     {
         name: "Card Database",
@@ -18,7 +27,7 @@ const projects = [
     },
     {
         name: "Hangman",
-        to: "/pages/hangman"
+        to: "https://www.seanslaughter.dev/pages/hangman"
     }
 ]
 
