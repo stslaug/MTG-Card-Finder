@@ -1,5 +1,4 @@
 "use client";
-import * as Scry from "scryfall-sdk";
 import Image from "next/image";
 import {
   Tooltip,
