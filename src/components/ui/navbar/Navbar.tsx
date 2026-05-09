@@ -28,6 +28,10 @@ const projects = [
     {
         name: "Hangman",
         to: "https://www.seanslaughter.dev/pages/hangman"
+    },
+    {
+        name: "Hangman",
+        to: "https://www.seanslaughter.dev/ADnD2ECharacters"
     }
 ]
 
