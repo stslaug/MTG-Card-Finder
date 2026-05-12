@@ -30,7 +30,7 @@ const projects = [
         to: "https://www.seanslaughter.dev/pages/hangman"
     },
     {
-        name: "Hangman",
+        name: "TTRPG Character Sheet",
         to: "https://www.seanslaughter.dev/ADnD2ECharacters"
     }
 ]
